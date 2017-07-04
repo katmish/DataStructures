@@ -1,0 +1,30 @@
+/*
+
+  HACKERRANK QUESTION
+  Find merge point of two linked lists
+  head pointer input could be NULL as well for empty list
+  Node is defined as 
+  class Node {
+     int data;
+     Node next;
+  }
+*/
+int FindMergeNode(Node NodeA, Node NodeB) {
+    
+    Node CurrentA = NodeA;
+    Node CurrentB = NodeB;
+    
+    while(CurrentA != CurrentB)
+    {
+        if(CurrentA.next == null)
+            CurrentA = NodeB;
+        else
+            CurrentA = CurrentA.next;
+        
+        if(CurrentB.next == null)
+            CurrentB = NodeA;
+        else
+            CurrentB = CurrentB.next;
+    }
+    return CurrentA.data;
+}
